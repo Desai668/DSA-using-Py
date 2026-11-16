@@ -1,0 +1,18 @@
+#The output which prints the indices of two numbers whose sum is equal to the target value
+def two_sum(nums, target):
+    seen = {}  # value -> index
+    for i, n in enumerate(nums):
+        need = target - n
+        if need in seen:
+            return [seen[need], i]
+        seen[n] = i
+    return []
+
+nums = list(map(int, input("Enter numbers separated by spaces: ").split()))
+target = int(input("Enter target: "))
+
+result = two_sum(nums, target)
+if result:
+    print("Indices:", result)
+else:
+    print("No pair found")

@@ -1,0 +1,13 @@
+#Buying and selling stock to gain best profit
+def max_profit(prices):
+    min_price = float('inf')
+    best = 0
+    for p in prices:
+        if p < min_price:
+            min_price = p          # cheapest day so far
+        else:
+            best = max(best, p - min_price)  # profit if sold today
+    return best
+
+prices = list(map(int, input("Enter prices separated by spaces: ").split()))
+print("Max profit:", max_profit(prices))
